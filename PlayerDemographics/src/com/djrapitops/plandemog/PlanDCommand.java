@@ -4,6 +4,8 @@ package com.djrapitops.plandemog;
 import com.djrapitops.plandemog.command.CommandType;
 import com.djrapitops.plandemog.command.SubCommand;
 import com.djrapitops.plandemog.command.commands.HelpCommand;
+import com.djrapitops.plandemog.command.commands.OptInCommand;
+import com.djrapitops.plandemog.command.commands.OptOutCommand;
 import com.djrapitops.plandemog.javaTools.Editor;
 import org.bukkit.ChatColor;
 
@@ -23,6 +25,8 @@ public class PlanDCommand implements CommandExecutor {
         commands = new ArrayList<>();
 
         commands.add(new HelpCommand(plugin, this));
+        commands.add(new OptOutCommand(plugin));
+        commands.add(new OptInCommand(plugin));
     }
 
     public List<SubCommand> getCommands() {
@@ -43,7 +47,7 @@ public class PlanDCommand implements CommandExecutor {
     }
 
     private void sendDefaultCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {
-        String command = "inspect";
+        String command = "help";
         if (args.length < 1) {
             command = "help";
         }
@@ -69,20 +73,20 @@ public class PlanDCommand implements CommandExecutor {
         
         if (!sender.hasPermission(command.getPermission())) {
 //            Phrase.NO_PERMISSION_FOR_COMMAND.sendWithPrefix( sender );
-            sender.sendMessage(ChatColor.RED + "[PLAN] You do not have the required permmission.");
+            sender.sendMessage(ChatColor.RED + "[PLADE] You do not have the required permmission.");
             return true;
         }
 
         if (console && args.length < 2 && command.getCommandType() == CommandType.CONSOLE_WITH_ARGUMENTS) {
 //            Phrase.COMMAND_NEEDS_ARGUMENTS.sendWithPrefix( sender );
-            sender.sendMessage(ChatColor.RED + "[PLAN] Command requires arguments.");
+            sender.sendMessage(ChatColor.RED + "[PLADE] Command requires arguments.");
 
             return true;
         }
 
         if (console && command.getCommandType() == CommandType.PLAYER) {
 //            Phrase.COMMAND_NOT_CONSOLE.sendWithPrefix( sender, commandLabel );
-            sender.sendMessage(ChatColor.RED + "[PLAN] This command can be only used as a player.");
+            sender.sendMessage(ChatColor.RED + "[PLADE] This command can be only used as a player.");
 
             return true;
         }

@@ -14,7 +14,7 @@ public class OptInCommand extends SubCommand {
     private final PlanDemographics plugin;
 
     public OptInCommand(PlanDemographics plugin) {
-        super("optin,opt-in,in", "pland.in", "Opt-in demographics logging /plan optIn", CommandType.PLAYER);
+        super("optin,opt-in,in", "plade.in", "Opt-in demographics logging /plade optIn", CommandType.PLAYER);
         this.plugin = plugin;
     }
 
@@ -24,7 +24,7 @@ public class OptInCommand extends SubCommand {
             FileUtils.OptIn(((Player) sender).getUniqueId());
             sender.sendMessage(ChatColor.DARK_GREEN+"Player Demographic Opt-In Successful.");
         } else {
-            sender.sendMessage(ChatColor.RED + "[PLAND] This command can be only used as a player.");
+            sender.sendMessage(ChatColor.RED + "[PLADE] This command can be only used as a player.");
         }
         return true;
     }

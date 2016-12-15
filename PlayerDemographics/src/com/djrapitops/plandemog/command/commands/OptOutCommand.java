@@ -14,7 +14,7 @@ public class OptOutCommand extends SubCommand {
     private final PlanDemographics plugin;
 
     public OptOutCommand(PlanDemographics plugin) {
-        super("optout,opt-out,out", "pland.out", "Opt-out of demographics logging /plan optOut", CommandType.PLAYER);
+        super("optout,opt-out,out", "plade.out", "Opt-out of demographics logging /plade optOut", CommandType.PLAYER);
         this.plugin = plugin;
     }
 
@@ -24,7 +24,7 @@ public class OptOutCommand extends SubCommand {
             FileUtils.OptOut(((Player) sender).getUniqueId());
             sender.sendMessage(ChatColor.DARK_GREEN + "Player Demographic Opt-Out Successful.");
         } else {
-            sender.sendMessage(ChatColor.RED + "[PLAND] This command can be only used as a player.");
+            sender.sendMessage(ChatColor.RED + "[PLADE] This command can be only used as a player.");
         }
         return true;
     }

@@ -1,0 +1,28 @@
+name: PlayerDemographics
+main: com.djrapitops.plandemog.PlanDemographics
+version: 1.0.0
+
+commands:
+  plade:
+    usage: /<command> <name>
+    description: base command
+  help:
+    usage: /plade
+    description: lists commands
+  opt-out:
+    usage: /plade optout
+    description: Opts out of data logging
+
+depend:
+- Plan
+
+permissions:
+  plade.?:
+    description: Help command
+    default: true
+  plade.optout:
+    description: Opt out
+    default: true
+  plade.optin:
+    description: Opt in
+    default: true

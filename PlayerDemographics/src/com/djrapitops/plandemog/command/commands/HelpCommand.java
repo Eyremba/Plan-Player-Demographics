@@ -16,7 +16,7 @@ public class HelpCommand extends SubCommand {
     private final PlanDCommand command;
 
     public HelpCommand(PlanDemographics plugin, PlanDCommand command) {
-        super("help,?", "pland.?", "Show command list.", CommandType.CONSOLE);
+        super("help,?", "plade.?", "Show command list.", CommandType.CONSOLE);
 
         this.plugin = plugin;
         this.command = command;

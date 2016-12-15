@@ -1,5 +1,7 @@
 package com.djrapitops.plandemog;
 
+import com.djrapitops.plan.API;
+import com.djrapitops.plan.Plan;
 import com.djrapitops.plandemog.listeners.PlanDChatListener;
 import com.djrapitops.plandemog.listeners.PlanDPlayerListener;
 import java.io.File;
@@ -34,6 +36,15 @@ public class PlanDemographics extends JavaPlugin {
         saveConfig();
         
         registerListeners();
+        
+        log("Hooking to Plan..");
+        // Hook Plan
+        API planAPI = getPlugin(Plan.class).getAPI();
+        planAPI.addExtraHook("PlanDemographics", new PlanHook(this));
+        
+        getCommand("plade").setExecutor(new PlanDCommand(this));
+        log("Player Demographics enabled.");
+        
     }
 
     @Override
