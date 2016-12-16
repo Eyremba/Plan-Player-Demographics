@@ -1,5 +1,5 @@
 
-package com.djrapitops.plandemog.javaTools;
+package com.djrapitops.plandemog.datautils;
 
 public class Editor {
     

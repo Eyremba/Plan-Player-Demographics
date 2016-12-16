@@ -29,7 +29,7 @@ public class HelpCommand extends SubCommand {
 
         ChatColor textColor = ChatColor.GRAY;
 
-        sender.sendMessage(textColor + "-- [" + operatorColor + "PLAN - Player Demographics" + textColor + "] --");
+        sender.sendMessage(textColor + "-- [" + operatorColor + "PLADE - Player Demographics" + textColor + "] --");
 
         for (SubCommand command : this.command.getCommands()) {
             if (command.getName().equalsIgnoreCase(getName())) {
@@ -44,7 +44,7 @@ public class HelpCommand extends SubCommand {
                 continue;
             }
 
-            sender.sendMessage(operatorColor + "/pland " + command.getFirstName() + textColor + " - " + command.getUsage());
+            sender.sendMessage(operatorColor + "/plade " + command.getFirstName() + textColor + " - " + command.getUsage());
         }
 
         return true;

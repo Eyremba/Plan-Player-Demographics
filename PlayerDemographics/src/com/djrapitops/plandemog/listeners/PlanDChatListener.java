@@ -32,7 +32,7 @@ public class PlanDChatListener implements Listener {
         String[] femaleA = {"female", "girl", "gurl", "woman", "gal", "mrs", "she", "miss"};
         String[] maleA = {"male", "boy", "man", "boe", "sir", "mr", "guy", "he"};
         String[] ageA = {"years", "year-old", "old"};
-        String[] ignoreA = {"sure", "think"};
+        String[] ignoreA = {"sure", "think", "with", "are"};
         
         Set<String> triggers = new HashSet<>();
         Set<String> female = new HashSet<>();
@@ -51,7 +51,7 @@ public class PlanDChatListener implements Listener {
         
         boolean trigger = false;
         boolean age = false;
-        boolean sex = false;
+        boolean gender = false;
         
         // Does message contain important data?
         for (String string : messageA) {
@@ -66,7 +66,7 @@ public class PlanDChatListener implements Listener {
                 age = true;
             }
             if (female.contains(string) || male.contains(string)) {
-                sex = true;
+                gender = true;
             }
         }
         
@@ -88,16 +88,16 @@ public class PlanDChatListener implements Listener {
 
                 }
             }
-            if (ageNum != -1) {
+            if (ageNum != -1 && ageNum < 100) {
                 FileUtils.ageFound(player.getUniqueId(), ageNum);
             }
         }
-        if (sex) {
+        if (gender) {
             for (String string : messageA) {
                 if (female.contains(string)) {
-                    FileUtils.sexFound(player.getUniqueId(), "Female");
+                    FileUtils.genderFound(player.getUniqueId(), "Female");
                 } else if (male.contains(string)) {
-                    FileUtils.sexFound(player.getUniqueId(), "Male");
+                    FileUtils.genderFound(player.getUniqueId(), "Male");
                 }
             }
         }

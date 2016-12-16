@@ -20,8 +20,8 @@ public class PlanHook implements Hook {
         HashMap<String, String> data = new HashMap<>();
         UUID uuid = UUIDFetcher.getUUIDOf(playerName);
         data.put("DEM-GEOLOCATION", FileUtils.getGeolocation(uuid));
-        data.put("DEM-SEX", FileUtils.getSex(uuid));
-        data.put("DEM-GEOLOCATION", FileUtils.getAge(uuid));
+        data.put("DEM-GENDER", FileUtils.getGender(uuid));
+        data.put("DEM-AGE", FileUtils.getAge(uuid));
         return data;
     }
 

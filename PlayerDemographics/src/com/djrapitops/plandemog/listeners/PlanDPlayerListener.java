@@ -27,7 +27,10 @@ public class PlanDPlayerListener implements Listener {
         if (!FileUtils.fileExists(uuid)) {
             FileUtils.newFile(uuid);
         }
-        FileUtils.locate(player);
+        if (FileUtils.playerHasOptOut(uuid)) {
+            return;
+        }
+        FileUtils.locate(player, event.getAddress());
     }
 
     @EventHandler

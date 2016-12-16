@@ -6,7 +6,7 @@ import com.djrapitops.plandemog.command.SubCommand;
 import com.djrapitops.plandemog.command.commands.HelpCommand;
 import com.djrapitops.plandemog.command.commands.OptInCommand;
 import com.djrapitops.plandemog.command.commands.OptOutCommand;
-import com.djrapitops.plandemog.javaTools.Editor;
+import com.djrapitops.plandemog.datautils.Editor;
 import org.bukkit.ChatColor;
 
 import org.bukkit.command.Command;

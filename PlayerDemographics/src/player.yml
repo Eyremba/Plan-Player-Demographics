@@ -1,4 +1,4 @@
 opt-out: false
-location: Unknown
-age: Unknown
-sex: Unknown
+location: false
+age: false
+sex: false
