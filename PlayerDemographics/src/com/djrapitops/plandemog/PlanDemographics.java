@@ -1,6 +1,6 @@
 package com.djrapitops.plandemog;
 
-import com.djrapitops.plan.API;
+import com.djrapitops.plan.api.API;
 import com.djrapitops.plan.Plan;
 import com.djrapitops.plandemog.listeners.PlanDChatListener;
 import com.djrapitops.plandemog.listeners.PlanDPlayerListener;

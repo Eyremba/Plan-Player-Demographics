@@ -1,8 +1,9 @@
 
 package com.djrapitops.plandemog;
 
-import com.djrapitops.plan.UUIDFetcher;
-import com.djrapitops.plan.command.hooks.Hook;
+import com.djrapitops.plan.api.DataPoint;
+import com.djrapitops.plan.api.DataType;
+import com.djrapitops.plan.api.Hook;
 import com.djrapitops.plandemog.datautils.FileUtils;
 import java.util.HashMap;
 import java.util.UUID;
@@ -16,17 +17,17 @@ public class PlanHook implements Hook {
     }
     
     @Override
-    public HashMap<String, String> getData(String playerName) throws Exception {
-        HashMap<String, String> data = new HashMap<>();
+    public HashMap<String, DataPoint> getData(String playerName) throws Exception {
+        HashMap<String, DataPoint> data = new HashMap<>();
         UUID uuid = UUIDFetcher.getUUIDOf(playerName);
-        data.put("DEM-GEOLOCATION", FileUtils.getGeolocation(uuid));
-        data.put("DEM-GENDER", FileUtils.getGender(uuid));
-        data.put("DEM-AGE", FileUtils.getAge(uuid));
+        data.put("DEM-GEOLOCATION", new DataPoint(FileUtils.getGeolocation(uuid), DataType.OTHER));
+        data.put("DEM-GENDER", new DataPoint(FileUtils.getGender(uuid), DataType.STRING));
+        data.put("DEM-AGE", new DataPoint(FileUtils.getAge(uuid), DataType.AMOUNT));
         return data;
     }
 
     @Override
-    public HashMap<String, String> getAllData(String playerName) throws Exception {
+    public HashMap<String, DataPoint> getAllData(String playerName) throws Exception {
         return getData(playerName);
     }
     
