@@ -47,7 +47,7 @@ public class PlanDChatListener implements Listener {
         ignore.addAll(Arrays.asList(ignoreA));
         // get message
         String message = event.getMessage();
-        String[] messageA = message.split("\\s+");
+        String[] messageA = message.toLowerCase().split("\\s+");
         
         boolean trigger = false;
         boolean age = false;

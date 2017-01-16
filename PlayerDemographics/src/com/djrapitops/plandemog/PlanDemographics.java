@@ -1,7 +1,7 @@
 package com.djrapitops.plandemog;
 
-import com.djrapitops.plan.api.API;
-import com.djrapitops.plan.Plan;
+import com.djrapitops.planlite.api.API;
+import com.djrapitops.planlite.PlanLite;
 import com.djrapitops.plandemog.listeners.PlanDChatListener;
 import com.djrapitops.plandemog.listeners.PlanDPlayerListener;
 import java.io.File;
@@ -19,9 +19,9 @@ public class PlanDemographics extends JavaPlugin {
     
     @Override
     public void onEnable() {
-        if (!Bukkit.getPluginManager().isPluginEnabled("Plan")) {
-            logError("Dependency Plan (Player Analytics) not found - Disabling plugin..");
-            logToFile("MAIN\nPlan not found. Plugin Disabled.");
+        if (!Bukkit.getPluginManager().isPluginEnabled("PlanLite")) {
+            logError("Dependency PlanLite (Player Analytics Lite) not found - Disabling plugin..");
+            logToFile("MAIN\nPlanLite not found. Plugin Disabled.");
             getServer().getPluginManager().disablePlugin(this);
             return;
         }
@@ -37,9 +37,9 @@ public class PlanDemographics extends JavaPlugin {
         
         registerListeners();
         
-        log("Hooking to Plan..");
+        log("Hooking to PlanLite..");
         // Hook Plan
-        API planAPI = getPlugin(Plan.class).getAPI();
+        API planAPI = getPlugin(PlanLite.class).getAPI();
         planAPI.addExtraHook("PlanDemographics", new PlanHook(this));
         
         getCommand("plade").setExecutor(new PlanDCommand(this));

@@ -1,8 +1,8 @@
 package com.djrapitops.plandemog;
 
-import com.djrapitops.plan.api.DataPoint;
-import com.djrapitops.plan.api.DataType;
-import com.djrapitops.plan.api.Hook;
+import com.djrapitops.planlite.api.DataPoint;
+import com.djrapitops.planlite.api.DataType;
+import com.djrapitops.planlite.api.Hook;
 import com.djrapitops.plandemog.datautils.FileUtils;
 import java.util.HashMap;
 import java.util.UUID;
